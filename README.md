@@ -12,3 +12,7 @@ yes | pip install youtube-dl
 wget -P "./bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
 chmod +x "./bin/termux-url-opener"
 ```
+#Or simply run this
+```
+wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/install.sh" && chmod install.sh && bash install.sh
+```
