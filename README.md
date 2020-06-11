@@ -15,7 +15,7 @@ wget -P "./bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GAB
 chmod +x "./bin/termux-url-opener"
 termux-setup-storage
 ```
-#Or simply run this
+Or simply run this
 ```
 wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/install.sh" && chmod +x install.sh && bash install.sh
 ```
