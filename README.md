@@ -1,5 +1,7 @@
 # All-in-one Download Script for Termux
 All-in-one Download Script for Termux URL Opener
+
+![screenshot.png](/screenshot.png)
 # Installing the script
 Launch Termux and run the follwing commands:
 ```
