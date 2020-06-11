@@ -19,8 +19,7 @@ wget -P "./storage/downloads/" -c --recursive --no-clobber  --page-requisites --
 .
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-fi 
 youtube-dl -f bestvideo+bestaudio -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
-.
 fi
 fi
+
