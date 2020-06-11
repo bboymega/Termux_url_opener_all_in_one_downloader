@@ -21,3 +21,5 @@ wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_ur
 ```
 # Adding cookies file for youtube-dl
 Just put your cookies file at the home directory of Termux.
+
+![cookies_screenshot.jpg](/cookies_screenshot.jpg)
