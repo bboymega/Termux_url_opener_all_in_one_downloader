@@ -5,8 +5,8 @@ Launch Termux and run the follwing commands:
 ```
 mkdir bin
 #Installing dependencies
-pkg update -y && pkg install wget -y && pkg install python3-pip -y && pkg install ffmpeg -y
-yes | pip3 install youtube-dl
+pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffmpeg -y
+yes | pip install youtube-dl
 
 #Installing the script
 wget -P "./bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
