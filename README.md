@@ -31,3 +31,6 @@ wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_ur
 Just put your cookies file at the home directory of Termux.
 
 ![cookies_screenshot.jpg](/cookies_screenshot.jpg)
+
+# FAQ
+This script is blank sensitive. Therefore option "3" and "3 " are treated differently. While "3" will launch option 3, "3 " is invalid and will launch the default option.
