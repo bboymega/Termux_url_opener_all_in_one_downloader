@@ -17,7 +17,7 @@ if [ "$n" == '3' ]; then
 wget -P "./storage/downloads/" -c --recursive --no-clobber  --page-requisites --html-extension --convert-links -e robots=off --restrict-file-names=windows --no-parent "$url" 
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -f bestvideo+bestaudio -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 fi
 fi
 
