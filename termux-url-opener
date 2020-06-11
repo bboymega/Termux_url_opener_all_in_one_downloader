@@ -14,7 +14,7 @@ read name
 ffmpeg -i "$url" -c copy -bsf:a aac_adtstoasc ./storage/downloads/"$name"
 else
 if [ "$n" == '3' ]; then
-wget -P "./storage/downloads/" -c --mirror --recursive --no-clobber  --page-requisites --html-extension --convert-links -e robots=off --restrict-file-names=windows --no-parent "$url" 
+wget -P "./storage/downloads/" -c --mirror  --span-hosts  --recursive --no-clobber  --page-requisites --html-extension --convert-links -e robots=off --restrict-file-names=windows --no-parent "$url" 
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
 youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
