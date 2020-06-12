@@ -1,5 +1,6 @@
 # All-in-one Download Script for Termux
-All-in-one Download Script for Termux URL Opener
+All-in-one Download Script for Termux URL Opener.
+
 This script requires **ffmpeg, youtube-dl, python, wget, spotdl** to function.
 
 ![screenshot.png](/screenshot.png)
