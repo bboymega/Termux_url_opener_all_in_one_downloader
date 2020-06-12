@@ -1,4 +1,6 @@
 #!/bin/bash
+#Clean Install
+rm "./bin/termux-url-opener"
 mkdir bin
 #Installing dependencies
 pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffmpeg -y
