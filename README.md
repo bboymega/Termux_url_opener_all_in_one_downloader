@@ -37,3 +37,8 @@ Just put your cookies file at the home directory of Termux.
 
 # FAQ
 This script is blank sensitive. Therefore option "3" and "3 " are treated differently. While "3" will launch option 3, "3 " is invalid and will launch the default option.
+
+# Changelog
+```
+Updated on Jun 12 2020: Added Spotify Support
+```
