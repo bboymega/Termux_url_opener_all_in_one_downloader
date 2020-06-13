@@ -23,9 +23,9 @@ if [ "$n" == '4' ]; then
 [ ! -d "./storage/downloads/spotdl" ] && mkdir "./storage/downloads/spotdl"
 test -f  "./.spotdl_playlist"  && rm "./.spotdl_playlist.txt"
 test -f  "./.spotdl_album"  && rm "./.spotdl_album.txt"
-[[ $url == *"track"* ]] && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --song "$url" -q best --output-ext flac
-[[ $url == *"playlist"* ]] && spotdl --playlist "$url" --write-to  "./.spotdl_playlist.txt"  && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "./.spotdl_playlist.txt" -q best --output-ext flac && rm -f "./.spotdl_playlist.txt"
-[[ $url == *"album"* ]] && spotdl --album "$url" --write-to  "./.spotdl_album.txt" && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "./.spotdl_album.txt" -q best --output-ext flac && rm -f "./.spotdl_album.txt"
+[[ $url == *"track"* ]] && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --song "$url" -q best --output-ext mp3
+[[ $url == *"playlist"* ]] && spotdl --playlist "$url" --write-to  "./.spotdl_playlist.txt"  && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "./.spotdl_playlist.txt" -q best --output-ext mp3 && rm -f "./.spotdl_playlist.txt"
+[[ $url == *"album"* ]] && spotdl --album "$url" --write-to  "./.spotdl_album.txt" && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "./.spotdl_album.txt" -q best --output-ext mp3 && rm -f "./.spotdl_album.txt"
 else
 if [ "$n" == '5' ]; then
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
