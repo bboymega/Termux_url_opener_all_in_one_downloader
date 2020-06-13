@@ -2,7 +2,7 @@
 clear
 url=$1
 echo "All-in-one Download Script for Termux"
-echo "----------Last updated Jun 12 2020----------"
+echo "----------Last updated Jun 13 2020----------"
 echo "--------------------------------------------"
 echo "1: Download with youtube-dl"
 echo "2: Download with ffmpeg(m3u8/m3u)"
