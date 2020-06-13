@@ -43,6 +43,8 @@ This script is blank sensitive. Therefore option "3" and "3 " are treated differ
 
 # Changelog
 ```
-Updated on Jun 12 2020: Added Spotify Support and youtube-dl Audio Conversion
+Updated on Jun 13 2020: Change spotdl Output format from flac to mp3.
+Updated on Jun 12 2020: Added Spotify Support and youtube-dl Audio Conversion.
+
 
 ```
