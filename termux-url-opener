@@ -29,7 +29,7 @@ test -f  "./.spotdl_album"  && rm "./.spotdl_album.txt"
 else
 if [ "$n" == '5' ]; then
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -x --embed-thumbnail --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
 youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
