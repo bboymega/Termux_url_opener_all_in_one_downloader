@@ -2,7 +2,7 @@
 clear
 url=$1
 echo "All-in-one Download Script for Termux"
-echo "----------Last updated Jun 13 2020----------"
+echo "----------Last updated Jun 18 2020----------"
 echo "--------------------------------------------"
 echo "1: Download with youtube-dl"
 echo "2: Download with ffmpeg(m3u8/m3u)"
@@ -29,7 +29,7 @@ test -f  "./.spotdl_album"  && rm "./.spotdl_album.txt"
 else
 if [ "$n" == '5' ]; then
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -x --embed-thumbnail --audio-format mp3 -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dl -x --embed-thumbnail --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
 youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
