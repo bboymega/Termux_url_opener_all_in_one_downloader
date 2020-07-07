@@ -43,6 +43,7 @@ cd "./storage/downloads/youtube-dl/WeTransfer"
 for file in *;
    do  
    echo "Uploading $file ..."
+   echo $file >> ~/storage/shared/links.txt
    python3 ~/bin/transferwee upload "$file"  >> ~/storage/shared/links.txt
    mv "$file" "../$file"
 done
