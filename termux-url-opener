@@ -42,7 +42,7 @@ cd "./storage/downloads/youtube-dl/WeTransfer"
 for file in *;
    do  
    echo "Uploading $file ..."
-   transferwee upload "$file"  >> ~/storage/shared/links.txt
+   ~/bin/transferwee upload "$file"  >> ~/storage/shared/links.txt
 done
 echo "Upload Complete. Links saved in /sdcard/links.txt"
 cat ~/storage/shared/links.txt
