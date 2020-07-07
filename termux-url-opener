@@ -33,19 +33,19 @@ if [ "$n" == '5' ]; then
 youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 if [ "$n" == '6' ]; then
-[ ! -f /bin/transferwee ] && echo "Downloading Dependencies..." && wget -O "./bin/transferwee" --no-check-certificate "https://raw.githubusercontent.com/iamleot/transferwee/master/transferwee.py" && chmod +x "./bin/transferwee"
 [ ! -d "./storage/downloads/youtube-dl/WeTransfer" ] && mkdir "./storage/downloads/youtube-dl" && mkdir "./storage/downloads/youtube-dl/WeTransfer"
+[ ! -f /bin/transferwee ] && echo "Downloading Dependencies..." && wget -O "./bin/transferwee" --no-check-certificate "https://raw.githubusercontent.com/iamleot/transferwee/master/transferwee.py" && chmod +x "./bin/transferwee"
 echo "Downloading with youtube-dl..."
-youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/WeTransfer/%(title)s.%(ext)s"
 echo "Video(s) Downloaded. Uploading to WeTransfer..."
 cd "./storage/downloads/youtube-dl/WeTransfer"
 for file in *;
    do  
    echo "Uploading $file ..."
-   transferwee upload "$file"  >> ./storage/shared/links.txt
+   transferwee upload "$file"  >> ~/storage/shared/links.txt
 done
 echo "Upload Complete. Links saved in /sdcard/links.txt"
-cat ./storage/shared/links.txt
+cat ~/storage/shared/links.txt
 echo "Press any key to exit..."
 read x
 else
