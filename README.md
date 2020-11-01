@@ -1,9 +1,9 @@
 # All-in-one Download Script for Termux
 All-in-one Download Script for Termux URL Opener.
 
-This script requires **ffmpeg, youtube-dl, python, wget, spotdl** to function.
+This script requires **ffmpeg, youtube-dl, python, wget, spotdl, youtube-dlc** to function.
 
-![screenshot061220.png](/screenshot061220.png)
+![Screenshot_20201101-094733_Termux.jpg](/Screenshot_20201101-094733_Termux.jpg)
 
 # Using the script
 Launch the "share" option and select Termux.
@@ -20,7 +20,7 @@ mkdir bin
 #Installing dependencies
 pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffmpeg -y
 #Installing required python modules
-yes | pip install youtube-dl && yes | pip install spotdl
+yes | pip install youtube-dl && yes | pip install spotdl && yes | pip install youtube-dlc
 
 #Installing the script
 wget -P "./bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
@@ -33,16 +33,13 @@ Or simply run this
 ```
 wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/install.sh" && chmod +x install.sh && bash install.sh
 ```
-# Adding cookies file for youtube-dl
-Just put your cookies file at the home directory of Termux.
-
-![cookies_screenshot.jpg](/cookies_screenshot.jpg)
 
 # FAQ
 This script is blank sensitive. Therefore option "3" and "3 " are treated differently. While "3" will launch option 3, "3 " is invalid and will launch the default option.
 
 # Changelog
 ```
+Updated on Nov 1 2020: Add youtube-dlc as an option for downloading
 Updated on Jun 18 2020: Change YouTube to mp3 audio quality to best available.
 Updated on Jun 13 2020: Change spotdl Output format from flac to mp3.
 Updated on Jun 12 2020: Added Spotify Support and youtube-dl Audio Conversion.
