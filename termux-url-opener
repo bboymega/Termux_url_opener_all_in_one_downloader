@@ -2,14 +2,16 @@
 clear
 url=$1
 echo "All-in-one Download Script for Termux"
-echo "----------Last updated Jun 18 2020----------"
+echo "----------Last updated Nov 1 2020----------"
 echo "--------------------------------------------"
-echo "1: Download with youtube-dl"
+echo "1: Download with youtube-dlc"
 echo "2: Download with ffmpeg(m3u8/m3u)"
 echo "3: Download with wget (Recursive)"
 echo "4: Download with spotdl (Spotify All-in-one)"
-echo "5: Download with youtube-dl and extract audio"
-echo "Default: Download with youtube-dl"
+echo "5: Download with youtube-dlc and extract audio"
+echo "6: Download with youtube-dl"
+echo "7: Download with youtube-dl and extract audio"
+echo "Default: Download with youtube-dlc"
 read n
 if [ "$n" == '2' ]; then
 echo "Output Filename:"
@@ -29,10 +31,20 @@ test -f  "./.spotdl_album"  && rm "./.spotdl_album.txt"
 else
 if [ "$n" == '5' ]; then
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -x --embed-thumbnail --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dlc -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else
+if [ "$n" == '6' ]; then
+[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
+youtube-dl -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else
+if [ "$n" == '7' ]; then
+[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
+youtube-dlc -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -c -i "$url" --cookies  ~/cookies -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dlc -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+fi
+fi
 fi
 fi
 fi
