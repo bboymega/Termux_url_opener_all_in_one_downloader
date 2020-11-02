@@ -3,7 +3,7 @@ All-in-one Download Script for Termux URL Opener.
 
 This script requires **ffmpeg, youtube-dl, python, wget, spotdl, youtube-dlc** to function.
 
-![Screenshot_20201102-101607_Termux.jpg](/Screenshot_20201102-101607_Termux.jpg)
+![Screenshot_20201102-102539_Termux.jpg](/Screenshot_20201102-102539_Termux.jpg)
 
 # Using the script
 Launch the "share" option and select Termux.
