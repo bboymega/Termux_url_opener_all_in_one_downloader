@@ -3,7 +3,7 @@ All-in-one Download Script for Termux URL Opener.
 
 This script requires **ffmpeg, youtube-dl, python, wget, spotdl, youtube-dlc** to function.
 
-![Screenshot_20201101-094733_Termux.jpg](/Screenshot_20201101-094733_Termux.jpg)
+![Screenshot_20201102-101607_Termux.jpg](/Screenshot_20201102-101607_Termux.jpg)
 
 # Using the script
 Launch the "share" option and select Termux.
@@ -39,6 +39,7 @@ This script is blank sensitive. Therefore option "3" and "3 " are treated differ
 
 # Changelog
 ```
+Updated on Nov 2 2020: Add support for subtitle embedding
 Updated on Nov 1 2020: Add youtube-dlc as an option for downloading
 Updated on Jun 18 2020: Change YouTube to mp3 audio quality to best available.
 Updated on Jun 13 2020: Change spotdl Output format from flac to mp3.
