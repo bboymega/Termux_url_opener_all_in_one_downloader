@@ -11,6 +11,11 @@ echo "4: Download with spotdl (Spotify All-in-one)"
 echo "5: Download with youtube-dlc and extract audio"
 echo "6: Download with youtube-dl"
 echo "7: Download with youtube-dl and extract audio"
+echo "8: Download with youtube-dl and embed all subtitles"
+echo "9: Download with youtube-dlc and embed all subtitles"
+echo "10: Download with youtube-dl and embed subtitle"
+echo "11: Download with youtube-dlc and embed subtitle"
+
 echo "Default: Download with youtube-dlc"
 read n
 if [ "$n" == '2' ]; then
@@ -39,10 +44,34 @@ youtube-dl -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 if [ "$n" == '7' ]; then
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dlc -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else 
+if [ "$n" == '8' ]; then
+[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
+youtube-dl -c -i --all-subs --write-auto-sub --embed-subs  "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else
+if [ "$n" == '9' ]; then
+[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
+youtube-dlc -c -i --all-subs --write-auto-sub --embed-subs  "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else
+if [ "$n" == '10' ]; then
+echo "Subtitle language (e.g. en, zh, ja) for download:"
+read lang
+[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
+youtube-dl -c -i --write-auto-sub --embed-subs  --sub-lang="$lang" "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else
+if [ "$n" == '11' ]; then
+echo "Subtitle language (e.g. en, zh, ja) for download:"
+read lang
+[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
+youtube-dlc -c -i --write-auto-sub --embed-subs  --sub-lang="$lang" "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
 youtube-dlc -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+fi
+fi
+fi
+fi
 fi
 fi
 fi
