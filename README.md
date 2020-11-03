@@ -39,7 +39,7 @@ This script is blank sensitive. Therefore option "3" and "3 " are treated differ
 
 # Changelog
 ```
-Updated on Nov 3 2020: Add you-get as an option for downloading
+Updated on Nov 2 2020: Add you-get as an option for downloading
 Updated on Nov 2 2020: Add support for subtitle embedding
 Updated on Nov 1 2020: Add youtube-dlc as an option for downloading
 Updated on Jun 18 2020: Change YouTube to mp3 audio quality to best available.
