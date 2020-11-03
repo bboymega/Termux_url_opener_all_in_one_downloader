@@ -15,7 +15,7 @@ echo "8: Download with youtube-dl and embed all subtitles"
 echo "9: Download with youtube-dlc and embed all subtitles"
 echo "10: Download with youtube-dl and embed subtitle"
 echo "11: Download with youtube-dlc and embed subtitle"
-
+echo "12: Download with you-get"
 echo "Default: Download with youtube-dlc"
 read n
 if [ "$n" == '2' ]; then
@@ -66,8 +66,13 @@ read lang
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
 youtube-dlc -c -i --write-auto-sub --embed-subs  --sub-lang="$lang" "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
+if [ "$n" == '12' ]; then
+[ ! -d "./storage/downloads/you-get" ] && mkdir "./storage/downloads/you-get"
+you-get -o "./storage/downloads/you-get" "$url"
+else
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
 youtube-dlc -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+fi
 fi
 fi
 fi
