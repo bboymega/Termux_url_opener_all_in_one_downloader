@@ -15,6 +15,7 @@ Launch the "share" option and select Termux.
 Launch Termux and run the follwing commands:
 ```
 #Clean Install
+cd ~
 rm "./bin/termux-url-opener"
 mkdir bin
 #Installing dependencies
