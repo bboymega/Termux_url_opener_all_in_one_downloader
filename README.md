@@ -15,8 +15,7 @@ Launch the "share" option and select Termux.
 Launch Termux and run the follwing commands:
 ```
 #Clean Install
-cd ~
-rm "./bin/termux-url-opener"
+rm "~/bin/termux-url-opener"
 mkdir bin
 #Installing dependencies
 pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffmpeg -y
@@ -24,9 +23,9 @@ pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffm
 yes | pip install youtube-dl && yes | pip install spotdl && yes | pip install youtube-dlc && yes | pip install you-get
 
 #Installing the script
-wget -P "./bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
+wget -P "~/bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
 #Make the script executable
-chmod +x "./bin/termux-url-opener"
+chmod +x "~/bin/termux-url-opener"
 #Setup external storage access on Termux
 termux-setup-storage
 ```
