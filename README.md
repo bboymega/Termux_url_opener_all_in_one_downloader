@@ -39,7 +39,7 @@ git clone https://github.com/Sitolam/Termux_url_opener_all_in_one_downloader.git
 chmod +x install.sh
 bash install.sh
 ```
-Or 
+Or also with git clone but in one script
 ```
 git clone https://github.com/Sitolam/Termux_url_opener_all_in_one_downloader.git && chmod +x install.sh && bash install.sh
 ```
