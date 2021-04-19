@@ -23,7 +23,7 @@ pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffm
 yes | pip install youtube-dl && yes | pip install spotdl && yes | pip install youtube-dlc && yes | pip install you-get
 
 #Installing the script
-wget -P "~/bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
+wget -P ~/bin/ --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/termux-url-opener" 
 #Make the script executable
 chmod +x "~/bin/termux-url-opener"
 #Setup external storage access on Termux
@@ -33,7 +33,16 @@ Or simply run this
 ```
 wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/Termux_url_opener_all_in_one_downloader/master/install.sh" && chmod +x install.sh && bash install.sh
 ```
-
+Or you can do it with git clone
+```
+git clone https://github.com/Sitolam/Termux_url_opener_all_in_one_downloader.git
+chmod +x install.sh
+bash install.sh
+```
+Or also with git clone but in one script
+```
+git clone https://github.com/Sitolam/Termux_url_opener_all_in_one_downloader.git && chmod +x install.sh && bash install.sh
+```
 # FAQ
 This script is blank sensitive. Therefore option "3" and "3 " are treated differently. While "3" will launch option 3, "3 " is invalid and will launch the default option.
 
