@@ -58,12 +58,12 @@ else
 
 if [ "$n" == '9' ]; then
 [ ! -d "./storage/downloads/redbulltv" ] && mkdir "./storage/downloads/redbulltv"
-rbtv-dl -o "./storage/downloads/redbulltv" -l "$url"
+python3 rbtv-dl -o "./storage/downloads/redbulltv" -l "$url"
 else
 
 if [ "$n" == '0' ]; then
 [ ! -d "./storage/downloads/bandcamp-dl" ] && mkdir "./storage/downloads/bandcamp-dl"
-bandcamp-dl -o "./storage/downloads/bandcamp-dl" -l "$url"
+python3 bandcamp-dl -o "./storage/downloads/bandcamp-dl" -l "$url"
 else
 
 [ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
@@ -77,3 +77,4 @@ fi
 fi
 fi
 fi
+
