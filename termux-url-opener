@@ -2,76 +2,72 @@
 clear
 url=$1
 echo "All-in-one Download Script for Termux"
-echo "----------Last updated Nov 2 2020----------"
+echo "----------Last updated Jul 15 2021----------"
 echo "--------------------------------------------"
-echo "1: Download with youtube-dlc"
+echo "1: Download with yt-dlp (Fixed Bandwidth Throttling by YouTube)"
 echo "2: Download with ffmpeg(m3u8/m3u)"
 echo "3: Download with wget (Recursive)"
 echo "4: Download with spotdl (Spotify All-in-one)"
-echo "5: Download with youtube-dlc and extract audio"
+echo "5: Download with yt-dlp and extract audio (Fixed Bandwidth Throttling by YouTube)"
 echo "6: Download with youtube-dl"
 echo "7: Download with youtube-dl and extract audio"
-echo "8: Download with youtube-dl and embed all subtitles"
-echo "9: Download with youtube-dlc and embed all subtitles"
-echo "10: Download with youtube-dl and embed subtitle"
-echo "11: Download with youtube-dlc and embed subtitle"
-echo "12: Download with you-get"
-echo "Default: Download with youtube-dlc"
+echo "8: Download with you-get"
+echo "9: Download with rbtv-dl (Red Bull TV)"
+echo "0: Download with bandcamp-dl (Batch Download from Bandcamp Artist)"
+echo "Default: Download with yt-dlp (Fixed Bandwidth Throttling by YouTube)"
 read n
+
 if [ "$n" == '2' ]; then
 echo "Output Filename:"
 read name
-ffmpeg -i "$url" -c copy -bsf:a aac_adtstoasc ./storage/downloads/"$name"
+ffmpeg -i "$url" -c copy -bsf:a aac_adtstoasc ~/storage/downloads/"$name"
 else
+
 if [ "$n" == '3' ]; then
-wget -P "./storage/downloads/" -c --mirror  --recursive --no-clobber  --page-requisites --html-extension --convert-links -e robots=off --restrict-file-names=windows --no-parent "$url"
+wget -P "~/storage/downloads/" -c --mirror  --recursive --no-clobber  --page-requisites --html-extension --convert-links -e robots=off --restrict-file-names=windows --no-parent "$url"
 else
+
 if [ "$n" == '4' ]; then 
-[ ! -d "./storage/downloads/spotdl" ] && mkdir "./storage/downloads/spotdl"
-test -f  "./.spotdl_playlist"  && rm "./.spotdl_playlist.txt"
-test -f  "./.spotdl_album"  && rm "./.spotdl_album.txt"
-[[ $url == *"track"* ]] && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --song "$url" -q best --output-ext mp3
-[[ $url == *"playlist"* ]] && spotdl --playlist "$url" --write-to  "./.spotdl_playlist.txt"  && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "./.spotdl_playlist.txt" -q best --output-ext mp3 && rm -f "./.spotdl_playlist.txt"
-[[ $url == *"album"* ]] && spotdl --album "$url" --write-to  "./.spotdl_album.txt" && spotdl --output-file "./storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "./.spotdl_album.txt" -q best --output-ext mp3 && rm -f "./.spotdl_album.txt"
+[ ! -d "~/storage/downloads/spotdl" ] && mkdir "~/storage/downloads/spotdl"
+test -f  "~/.spotdl_playlist"  && rm "~/.spotdl_playlist.txt"
+test -f  "~/.spotdl_album"  && rm "~/.spotdl_album.txt"
+[[ $url == *"track"* ]] && spotdl --output-file "~/storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --song "$url" -q best --output-ext mp3
+[[ $url == *"playlist"* ]] && spotdl --playlist "$url" --write-to  "~/.spotdl_playlist.txt"  && spotdl --output-file "~/storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "~/.spotdl_playlist.txt" -q best --output-ext mp3 && rm -f "~/.spotdl_playlist.txt"
+[[ $url == *"album"* ]] && spotdl --album "$url" --write-to  "~/.spotdl_album.txt" && spotdl --output-file "~/storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "~/.spotdl_album.txt" -q best --output-ext mp3 && rm -f "~/.spotdl_album.txt"
 else
+
 if [ "$n" == '5' ]; then
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dlc -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "~/storage/downloads/youtube-dl" ] && mkdir "~/storage/downloads/youtube-dl"
+yt-dlp --extractor-args "youtube:player_client=android" -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "~/storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
+
 if [ "$n" == '6' ]; then
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "~/storage/downloads/youtube-dl" ] && mkdir "~/storage/downloads/youtube-dl"
+youtube-dl -c -i "$url" -o "~/storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
+
 if [ "$n" == '7' ]; then
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
-else 
+[ ! -d "~/storage/downloads/youtube-dl" ] && mkdir "~/storage/downloads/youtube-dl"
+youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "~/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+else
+
 if [ "$n" == '8' ]; then
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -c -i --all-subs --write-auto-sub --embed-subs  "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "~/storage/downloads/you-get" ] && mkdir "~/storage/downloads/you-get"
+you-get -o "~/storage/downloads/you-get" "$url"
 else
+
 if [ "$n" == '9' ]; then
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dlc -c -i --all-subs --write-auto-sub --embed-subs  "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "~/storage/downloads/redbulltv" ] && mkdir "~/storage/downloads/redbulltv"
+rbtv-dl -o "~/storage/downloads/redbulltv" -l "$url"
 else
-if [ "$n" == '10' ]; then
-echo "Subtitle language (e.g. en, zh, ja) for download:"
-read lang
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dl -c -i --write-auto-sub --embed-subs  --sub-lang="$lang" "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+
+if [ "$n" == '0' ]; then
+[ ! -d "~/storage/downloads/bandcamp-dl" ] && mkdir "~/storage/downloads/bandcamp-dl"
+bandcamp-dl -o "~/storage/downloads/bandcamp-dl" -l "$url"
 else
-if [ "$n" == '11' ]; then
-echo "Subtitle language (e.g. en, zh, ja) for download:"
-read lang
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dlc -c -i --write-auto-sub --embed-subs  --sub-lang="$lang" "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
-else
-if [ "$n" == '12' ]; then
-[ ! -d "./storage/downloads/you-get" ] && mkdir "./storage/downloads/you-get"
-you-get -o "./storage/downloads/you-get" "$url"
-else
-[ ! -d "./storage/downloads/youtube-dl" ] && mkdir "./storage/downloads/youtube-dl"
-youtube-dlc -c -i "$url" -o "./storage/downloads/youtube-dl/%(title)s.%(ext)s"
+
+[ ! -d "~/storage/downloads/youtube-dl" ] && mkdir "~/storage/downloads/youtube-dl"
+yt-dlp  --extractor-args "youtube:player_client=android" -c -i "$url" -o "~/storage/downloads/youtube-dl/%(title)s.%(ext)s"
 fi
 fi
 fi
@@ -79,8 +75,5 @@ fi
 fi
 fi
 fi
-fi
-fi
-fi
-fi
+
 
