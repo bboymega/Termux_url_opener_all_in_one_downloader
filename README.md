@@ -54,6 +54,7 @@ This script is blank sensitive. Therefore option "3" and "3 " are treated differ
 
 # Changelog
 ```
+Updated on Jul 31 2021: Changed relative path to absolute path to avoid path errors.
 Updated on Jul 16 2021: Added RedBull TV and Bandcamp artist support. Replacing youtube-dlc with yt-dlp.
 Updated on Nov 2 2020: Add you-get as an option for downloading
 Updated on Nov 2 2020: Add support for subtitle embedding
