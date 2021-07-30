@@ -2,7 +2,7 @@
 clear
 url=$1
 echo "All-in-one Download Script for Termux"
-echo "----------Last updated Jul 15 2021----------"
+echo "----------Last updated Jul 31 2021----------"
 echo "--------------------------------------------"
 echo "1: Download with yt-dlp (Fixed Bandwidth Throttling by YouTube)"
 echo "2: Download with ffmpeg(m3u8/m3u)"
