@@ -2,7 +2,7 @@
 clear
 url=$1
 echo "All-in-one Download Script for Termux"
-echo "----------Last updated Jul 31 2021----------"
+echo "----------Last updated Okt 03 2022----------"
 echo "--------------------------------------------"
 echo "1: Download with yt-dlp (Fixed Bandwidth Throttling by YouTube)"
 echo "2: Download with ffmpeg(m3u8/m3u)"
@@ -28,27 +28,27 @@ wget -P "/data/data/com.termux/files/home/storage/downloads/" -c --mirror  --rec
 else
 
 if [ "$n" == '4' ]; then 
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/spotdl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/spotdl"
+[ ! -d "/data/data/com.termux/files/home/storage/shared/spotdl" ] && mkdir "/data/data/com.termux/files/home/storage/shared/spotdl"
 test -f  "/data/data/com.termux/files/home/.spotdl_playlist"  && rm "/data/data/com.termux/files/home/.spotdl_playlist.txt"
 test -f  "/data/data/com.termux/files/home/.spotdl_album"  && rm "/data/data/com.termux/files/home/.spotdl_album.txt"
-[[ $url == *"track"* ]] && spotdl --output-file "/data/data/com.termux/files/home/storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --song "$url" -q best --output-ext mp3
-[[ $url == *"playlist"* ]] && spotdl --playlist "$url" --write-to  "/data/data/com.termux/files/home/.spotdl_playlist.txt"  && spotdl --output-file "/data/data/com.termux/files/home/storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "/data/data/com.termux/files/home/.spotdl_playlist.txt" -q best --output-ext mp3 && rm -f "/data/data/com.termux/files/home/.spotdl_playlist.txt"
-[[ $url == *"album"* ]] && spotdl --album "$url" --write-to  "/data/data/com.termux/files/home/.spotdl_album.txt" && spotdl --output-file "/data/data/com.termux/files/home/storage/downloads/spotdl/{artist} - {track-name}.{output-ext}" --list "/data/data/com.termux/files/home/.spotdl_album.txt" -q best --output-ext mp3 && rm -f "/data/data/com.termux/files/home/.spotdl_album.txt"
+[[ $url == *"track"* ]] && spotdl --output-file "/data/data/com.termux/files/home/storage/shared/spotdl/{artist} - {track-name}.{output-ext}" --song "$url" -q best --output-ext mp3
+[[ $url == *"playlist"* ]] && spotdl --playlist "$url" --write-to  "/data/data/com.termux/files/home/.spotdl_playlist.txt"  && spotdl --output-file "/data/data/com.termux/files/home/storage/shared/spotdl/{artist} - {track-name}.{output-ext}" --list "/data/data/com.termux/files/home/.spotdl_playlist.txt" -q best --output-ext mp3 && rm -f "/data/data/com.termux/files/home/.spotdl_playlist.txt"
+[[ $url == *"album"* ]] && spotdl --album "$url" --write-to  "/data/data/com.termux/files/home/.spotdl_album.txt" && spotdl --output-file "/data/data/com.termux/files/home/storage/shared/spotdl/{artist} - {track-name}.{output-ext}" --list "/data/data/com.termux/files/home/.spotdl_album.txt" -q best --output-ext mp3 && rm -f "/data/data/com.termux/files/home/.spotdl_album.txt"
 else
 
 if [ "$n" == '5' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-yt-dlp --extractor-args "youtube:player_client=android" -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "/data/data/com.termux/files/home/storage/shared/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/shared/youtube-dl"
+yt-dlp --extractor-args "youtube:player_client=android" -x --audio-format mp3 -f bestaudio --audio-quality 0 --add metadata --embed thumbnail -c -i "$url" -o "/data/data/com.termux/files/home/storage/shared/youtube-dl/%(title)s.%(ext)s"
 else
 
 if [ "$n" == '6' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-youtube-dl -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "/data/data/com.termux/files/home/storage/shared/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/shared/youtube-dl"
+youtube-dl -c -i "$url" -o "/data/data/com.termux/files/home/storage/shared/youtube-dl/%(title)s.%(ext)s"
 else
 
 if [ "$n" == '7' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "/data/data/com.termux/files/home/storage/shared/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/shared/youtube-dl"
+youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "/data/data/com.termux/files/home/storage/shared/youtube-dl/%(title)s.%(ext)s"
 else
 
 if [ "$n" == '8' ]; then
@@ -66,8 +66,8 @@ if [ "$n" == '0' ]; then
 python3 bandcamp-dl "$url" -o "/data/data/com.termux/files/home/storage/downloads/bandcamp-dl"
 else
 
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-yt-dlp  --extractor-args "youtube:player_client=android" -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+[ ! -d "/data/data/com.termux/files/home/storage/shared/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/shared/youtube-dl"
+yt-dlp  --extractor-args "youtube:player_client=android" -c -i "$url" -o "/data/data/com.termux/files/home/storage/shared/youtube-dl/%(title)s.%(ext)s"
 fi
 fi
 fi
