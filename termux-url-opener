@@ -9,11 +9,7 @@ echo "2: Download with ffmpeg(m3u8/m3u)"
 echo "3: Download with wget (Recursive)"
 echo "4: Download with spotdl (Spotify All-in-one)"
 echo "5: Download with yt-dlp and extract audio (Fixed Bandwidth Throttling by YouTube)"
-echo "6: Download with youtube-dl"
-echo "7: Download with youtube-dl and extract audio"
-echo "8: Download with you-get"
-echo "9: Download with rbtv-dl (Red Bull TV)"
-echo "0: Download with bandcamp-dl (Batch Download from Bandcamp Artist)"
+echo "6: Download with you-get"
 echo "Default: Download with yt-dlp (Fixed Bandwidth Throttling by YouTube)"
 read n
 
@@ -42,28 +38,8 @@ yt-dlp --extractor-args "youtube:player_client=android" -x --audio-format mp3 -f
 else
 
 if [ "$n" == '6' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-youtube-dl -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
-else
-
-if [ "$n" == '7' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-youtube-dl -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
-else
-
-if [ "$n" == '8' ]; then
 [ ! -d "/data/data/com.termux/files/home/storage/downloads/you-get" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/you-get"
 you-get -o "/data/data/com.termux/files/home/storage/downloads/you-get" "$url"
-else
-
-if [ "$n" == '9' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/redbulltv" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/redbulltv"
-python3 rbtv-dl "$url" -o "/data/data/com.termux/files/home/storage/downloads/redbulltv"
-else
-
-if [ "$n" == '0' ]; then
-[ ! -d "/data/data/com.termux/files/home/storage/downloads/bandcamp-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/bandcamp-dl"
-python3 bandcamp-dl "$url" -o "/data/data/com.termux/files/home/storage/downloads/bandcamp-dl"
 else
 
 [ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
@@ -73,8 +49,5 @@ fi
 fi
 fi
 fi
-fi
-fi
-fi
-fi
+
 
