@@ -38,7 +38,7 @@ else
 
 if [ "$n" == '5' ]; then
 [ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-yt-dlp --compat-options filename-sanitization --ffmpeg-location "/data/data/com.termux/files/usr/bin/ffmpeg" -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+yt-dlp --compat-options filename-sanitization --ffmpeg-location "/data/data/com.termux/files/usr/bin" -x --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
 else
 
 if [ "$n" == '6' ]; then
@@ -67,7 +67,7 @@ python3 bandcamp-dl "$url" -o "/data/data/com.termux/files/home/storage/download
 else
 
 [ ! -d "/data/data/com.termux/files/home/storage/downloads/youtube-dl" ] && mkdir "/data/data/com.termux/files/home/storage/downloads/youtube-dl"
-yt-dlp --compat-options filename-sanitization --ffmpeg-location "/data/data/com.termux/files/usr/bin/ffmpeg" -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
+yt-dlp --compat-options filename-sanitization --ffmpeg-location "/data/data/com.termux/files/usr/bin" -c -i "$url" -o "/data/data/com.termux/files/home/storage/downloads/youtube-dl/%(title)s.%(ext)s"
 fi
 fi
 fi
