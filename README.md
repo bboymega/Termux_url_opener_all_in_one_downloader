@@ -41,13 +41,13 @@ wget --no-check-certificate "https://raw.githubusercontent.com/bboymega/Termux_u
 ```
 Or you can do it with git clone
 ```
-git clone https://github.com/Sitolam/Termux_url_opener_all_in_one_downloader.git
+git clone https://github.com/bboymega/Termux_url_opener_all_in_one_downloader.git
 chmod +x install.sh
 bash install.sh
 ```
 Or also with git clone but in one script
 ```
-git clone https://github.com/Sitolam/Termux_url_opener_all_in_one_downloader.git && chmod +x install.sh && bash install.sh
+git clone https://github.com/bboymega/Termux_url_opener_all_in_one_downloader.git && chmod +x install.sh && bash install.sh
 ```
 # FAQ
 This script is blank sensitive. Therefore option "3" and "3 " are treated differently. While "3" will launch option 3, "3 " is invalid and will launch the default option.
